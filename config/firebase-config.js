@@ -1,9 +1,9 @@
 const admin = require('firebase-admin');
 const dotenv = require('dotenv');
-const path = require('path');
-dotenv.config();
+dotenv.config(); // Charge les variables d'environnement
 
-const serviceAccount = require(path.join(__dirname, '..', 'pfe-project-97821-firebase-adminsdk-fbsvc-ac37cf24d0.json'));
+// Charger les credentials à partir de la variable d'environnement
+const serviceAccount = JSON.parse(process.env.GOOGLE_CREDENTIALS);
 
 try {
   admin.initializeApp({
